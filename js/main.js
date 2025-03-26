@@ -8,13 +8,8 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 renderer.setAnimationLoop(animate);
 document.body.appendChild(renderer.domElement);
 
-// Geometría y material del cubo
-const geometry = new THREE.BoxGeometry(1, 1, 1);
-const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
-const cube = new THREE.Mesh(geometry, material);
-scene.add(cube);
-
 // Geometría y material para las líneas de los bordes
+const geometry = new THREE.BoxGeometry(1, 1, 1);
 const edgesGeometry = new THREE.EdgesGeometry(geometry);
 const lineMaterial = new THREE.LineBasicMaterial({ color: 0xffffff }); // Color blanco para las líneas
 const lines = new THREE.LineSegments(edgesGeometry, lineMaterial);
@@ -23,10 +18,7 @@ scene.add(lines);
 camera.position.z = 5;
 
 function animate() {
-    cube.rotation.x += 0.01;
-    cube.rotation.y += 0.01;
-
-    lines.rotation.x += 0.01; // Sincronizar la rotación de las líneas con el cubo
+    lines.rotation.x += 0.01; // Rotación de las líneas
     lines.rotation.y += 0.01;
 
     renderer.render(scene, camera);
