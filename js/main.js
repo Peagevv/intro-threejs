@@ -8,8 +8,8 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 renderer.setAnimationLoop(animate);
 document.body.appendChild(renderer.domElement);
 
-// Geometría y material para las líneas de los bordes
-const geometry = new THREE.BoxGeometry(1, 1, 1);
+// Aumentar la resolución del cubo
+const geometry = new THREE.BoxGeometry(1, 1, 1, 10, 10, 10); // Más segmentos en los ejes X, Y, Z
 const edgesGeometry = new THREE.EdgesGeometry(geometry);
 const lineMaterial = new THREE.LineBasicMaterial({ color: 0xffffff }); // Color blanco para las líneas
 const lines = new THREE.LineSegments(edgesGeometry, lineMaterial);
